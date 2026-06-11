@@ -7,82 +7,72 @@
 
     <style>
         #title {
-    font-size: min(50px, 12vw);
-    text-align: center;
-    font-weight: bolder;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+        font-size: min(50px, 12vw);
+        text-align: center;
+        font-weight: bolder;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
 
-#indicator {
-    text-align: center;
-    font-size: 245%;
-    font-weight: bolder;
-}
+        #indicator {
+            text-align: center;
+            font-size: 245%;
+            font-weight: bolder;
+        }
 
-#board {
-    margin: auto;
-    background-color: rgb(38, 38, 38);
+        #board {
+            margin: auto;
+            background-color: rgb(38, 38, 38);
+            width: min(500px, 89vw);
+            aspect-ratio: 1 / 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            padding: 4px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 3.1px;
+        }
 
-    width: min(500px, 89vw);
-    aspect-ratio: 1 / 1;
+        .section {
+            background-color: rgb(222, 222, 222);
+            border-radius: 1.5px;
+            font-size: min(650%, 89vw);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%
+        }
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+        .section:hover {
+            transform: scale(1.013);
+            background-color: rgb(180, 180, 180);
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-    gap: 4px;
-    padding: 4px;
-    box-sizing: border-box;
+        #reset-board {
+            text-align: center;
+            margin-top: 6px;
+        }
 
-    border: 2px solid black;
-    border-radius: 3.1px;
-}
+        #reset {
+            text-align: center;
+            width: min(500px, 89vw);
+            font-size: 220%;
+            padding: 1px;
+            border: 5px solid black;
+            background-color: rgb(222, 222, 222);
+        }
 
-.section {
-    background-color: rgb(222, 222, 222);
-    border-radius: 1.5px;
-
-    font-size: min(650%, 90vw);
-    font-weight: bold;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    border: none;
-    padding: 0;
-}
-
-.section:hover {
-    transform: scale(1.013);
-    background-color: rgb(180, 180, 180);
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#reset-board {
-    text-align: center;
-    margin-top: 6px;
-}
-
-#reset {
-    text-align: center;
-    width: min(500px, 89vw);
-    font-size: 220%;
-    padding: 1px;
-    border: 5px solid black;
-    background-color: rgb(222, 222, 222);
-}
-
-#reset:hover {
-    cursor: pointer;
-    transform: scale(1.01);
-    background-color: rgb(235, 234, 234);
-    font-size: 225%;
-}
+        #reset:hover {
+            cursor: pointer;
+            transform: scale(1.01);
+            background-color: rgb(235, 234, 234);
+            font-size: 225%;
+        }
     </style>
 
     <script>
