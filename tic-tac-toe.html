@@ -7,75 +7,82 @@
 
     <style>
         #title {
-            font-size: min(50px, 12vw);
-            text-align: center;
-            font-weight: bolder;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        
-        #indicator {
-            text-align: center;
-            font-size: 245%;
-            font-weight: bolder;
-        }
+    font-size: min(50px, 12vw);
+    text-align: center;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-        #board {
-            margin: auto;
-            background-color: rgb(38, 38, 38);
-            width: min(500px, 89vw);
-            height: min(500px, 89vw);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 4px;
-            padding: 4px;
-            box-sizing: border-box;
-            border: 2px solid black;
-            border-radius: 3.1px;
-        }
+#indicator {
+    text-align: center;
+    font-size: 245%;
+    font-weight: bolder;
+}
 
-        .section {
-            width: min(100%, 90vw);
-            height: min(100%, 90vw);
-            background-color: rgb(222, 222, 222);
-            border-radius: 1.5px;
-            font-size: min(650%, 90vw);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-        }
+#board {
+    margin: auto;
+    background-color: rgb(38, 38, 38);
 
-        .section:hover {
-            transform: scale(1.01342);
-            background-color: rgb(180, 180, 180);
-            border-radius: 3px;
-            cursor: pointer;
-        }
+    width: min(500px, 89vw);
+    aspect-ratio: 1 / 1;
 
-        #reset-board {
-            text-align: center;
-            margin-top: 6px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 
-        #reset {
-            text-align: center;
-            width: min(500px, 89vw);
-            height: auto;
-            padding: 1px;
-            border: 5px solid black;
-            font-size: 220%;
-            background-color: rgb(222, 222, 222);
-        }
+    gap: 4px;
+    padding: 4px;
+    box-sizing: border-box;
 
-        #reset:hover {
-            cursor: pointer;
-            transform: scale(1.01);background-color: rgb(235, 234, 234);
-            font-size: 225%;
-        }
+    border: 2px solid black;
+    border-radius: 3.1px;
+}
 
+.section {
+    background-color: rgb(222, 222, 222);
+    border-radius: 1.5px;
 
+    font-size: min(650%, 90vw);
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    padding: 0;
+}
+
+.section:hover {
+    transform: scale(1.013);
+    background-color: rgb(180, 180, 180);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#reset-board {
+    text-align: center;
+    margin-top: 6px;
+}
+
+#reset {
+    text-align: center;
+    width: min(500px, 89vw);
+    font-size: 220%;
+    padding: 1px;
+    border: 5px solid black;
+    background-color: rgb(222, 222, 222);
+}
+
+#reset:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    background-color: rgb(235, 234, 234);
+    font-size: 225%;
+}
     </style>
 
     <script>
