@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emile's tic-tac-toe game/board</title>
+
+    <style>
+        #title {
+            font-size: min(50px, 12vw);
+            text-align: center;
+            font-weight: bolder;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        #indicator {
+            text-align: center;
+            font-size: 245%;
+            font-weight: bolder;
+        }
+
+        #board {
+            margin: auto;
+            background-color: rgb(38, 38, 38);
+            width: min(500px, 89vw);
+            height: min(500px, 89vw);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            padding: 4px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 3.1px;
+        }
+
+        .section {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(222, 222, 222);
+            border-radius: 1.5px;
+            font-size: 650%;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .section:hover {
+            transform: scale(1.01342);
+            background-color: rgb(180, 180, 180);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #reset-board {
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        #reset {
+            text-align: center;
+            width: min(500px, 89vw);
+            height: auto;
+            padding: 1px;
+            border: 5px solid black;
+            font-size: 220%;
+            background-color: rgb(222, 222, 222);
+        }
+
+        #reset:hover {
+            cursor: pointer;
+            transform: scale(1.01);background-color: rgb(235, 234, 234);
+            font-size: 225%;
+        }
+
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded" , function () {
+            let indicator = document.getElementById("indicator");
+            indicator.innerHTML = "-O-";
+
+            let sec1 = document.getElementById("sec1");
+            let sec2 = document.getElementById("sec2");
+            let sec3 = document.getElementById("sec3");
+            let sec4 = document.getElementById("sec4");
+            let sec5 = document.getElementById("sec5");
+            let sec6 = document.getElementById("sec6");
+            let sec7 = document.getElementById("sec7");
+            let sec8 = document.getElementById("sec8");
+            let sec9 = document.getElementById("sec9");
+        
+            document.getElementById("sec1").addEventListener("click" , function() {
+                click_detector(sec1);
+                win_detector();
+            });
+
+            document.getElementById("sec2").addEventListener("click" , function() {
+                click_detector(sec2);
+                win_detector();
+            });
+
+            document.getElementById("sec3").addEventListener("click" , function() {
+                click_detector(sec3);
+                win_detector();
+            });
+
+            document.getElementById("sec4").addEventListener("click" , function() {
+                click_detector(sec4);
+                win_detector();
+            });
+
+            document.getElementById("sec5").addEventListener("click" , function() {
+                click_detector(sec5);
+                win_detector();
+            });
+
+            document.getElementById("sec6").addEventListener("click" , function() {
+                click_detector(sec6);
+                win_detector();
+            });
+
+            document.getElementById("sec7").addEventListener("click" , function() {
+                click_detector(sec7);
+                win_detector();
+            });
+
+            document.getElementById("sec8").addEventListener("click" , function() {
+                click_detector(sec8);
+                win_detector();
+            });
+
+            document.getElementById("sec9").addEventListener("click" , function() {
+                click_detector(sec9);
+                win_detector();
+            });
+
+            function click_detector(sec) {
+                if (sec.innerHTML !== "") return;
+                if (indicator.innerHTML === "-O-") {
+                    sec.innerHTML = "O";
+                    indicator.innerHTML = "-X-";
+                }
+                else {
+                    sec.innerHTML = "X";
+                    indicator.innerHTML = "-O-";
+                }
+            }
+
+            function win_detector(sec) {
+                
+
+                if (sec1.innerHTML === "X" && sec2.innerHTML === "X" && sec3.innerHTML === "X" ||
+                    sec4.innerHTML === "X" && sec5.innerHTML === "X" && sec6.innerHTML === "X" ||
+                    sec7.innerHTML === "X" && sec8.innerHTML === "X" && sec9.innerHTML === "X" ||
+                    
+                    sec1.innerHTML === "X" && sec4.innerHTML === "X" && sec7.innerHTML === "X" ||
+                    sec2.innerHTML === "X" && sec5.innerHTML === "X" && sec8.innerHTML === "X" ||
+                    sec3.innerHTML === "X" && sec6.innerHTML === "X" && sec9.innerHTML === "X" ||
+                    
+                    sec1.innerHTML === "X" && sec5.innerHTML === "X" && sec9.innerHTML === "X" ||
+                    sec3.innerHTML === "X" && sec5.innerHTML === "X" && sec7.innerHTML === "X" 
+                ) {
+                    indicator.innerHTML = "X wins!";
+                    end();
+                }
+
+                else if (
+                    sec1.innerHTML === "O" && sec2.innerHTML === "O" && sec3.innerHTML === "O" ||
+                    sec4.innerHTML === "O" && sec5.innerHTML === "O" && sec6.innerHTML === "O" ||
+                    sec7.innerHTML === "O" && sec8.innerHTML === "O" && sec9.innerHTML === "O" ||
+                    
+                    sec1.innerHTML === "O" && sec4.innerHTML === "O" && sec7.innerHTML === "O" ||
+                    sec2.innerHTML === "O" && sec5.innerHTML === "O" && sec8.innerHTML === "O" ||
+                    sec3.innerHTML === "O" && sec6.innerHTML === "O" && sec9.innerHTML === "O" ||
+                    
+                    sec1.innerHTML === "O" && sec5.innerHTML === "O" && sec9.innerHTML === "O" ||
+                    sec3.innerHTML === "O" && sec5.innerHTML === "O" && sec7.innerHTML === "O" 
+                ) {
+                    indicator.innerHTML = "O wins!"
+                    end();
+                }
+            }
+
+            function end() {
+                document.querySelectorAll(".section").forEach(button => {
+                button.disabled = true;
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1 id="title"><u>TIC - TAC - TOE</u></h1>
+
+    <h1 id="indicator"></h1>
+
+    <div id="board">
+        <button class="section" id="sec1"></button>
+        <button class="section" id="sec2"></button>
+        <button class="section" id="sec3"></button>
+        <button class="section" id="sec4"></button>
+        <button class="section" id="sec5"></button>
+        <button class="section" id="sec6"></button>
+        <button class="section" id="sec7"></button>
+        <button class="section" id="sec8"></button>
+        <button class="section" id="sec9"></button>
+    </div>
+    <div id="reset-board">
+        <button onclick="reset_board()" id="reset"><b>Reset Board</b></button>
+    </div>
+    <script>
+        function reset_board() {
+                document.querySelectorAll(".section").forEach(btn => {
+                    btn.innerHTML = "";
+                    btn.disabled = false
+                });
+                indicator.innerHTML = "-O-"
+            }
+    </script>
+</body>
+</html>
