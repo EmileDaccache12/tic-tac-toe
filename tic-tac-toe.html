@@ -37,7 +37,7 @@
         .section {
             background-color: rgb(222, 222, 222);
             border-radius: 1.5px;
-            font-size: min(650%, 70vw);
+            font-size: min(650%, 89vw);
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -74,6 +74,12 @@
             transform: scale(1.01);
             background-color: rgb(235, 234, 234);
             font-size: 225%;
+        }
+
+        @media (max-width: 800px) {
+            .section {
+                font-size: 100%;
+            }
         }
     </style>
 
