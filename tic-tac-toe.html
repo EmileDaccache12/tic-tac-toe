@@ -10,7 +10,7 @@
         font-size: min(50px, 12vw);
         text-align: center;
         font-weight: bolder;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: Verdana, Geneva, Tahoma, sans-serif, Calibri;
         }
 
         #indicator {
@@ -146,11 +146,11 @@
             function click_detector(sec) {
                 if (sec.innerHTML !== "") return;
                 if (indicator.innerHTML === "-O-") {
-                    sec.innerHTML = "O";
+                    sec.innerHTML = "⭕";
                     indicator.innerHTML = "-X-";
                 }
                 else {
-                    sec.innerHTML = "X";
+                    sec.innerHTML = "❌";
                     indicator.innerHTML = "-O-";
                 }
             }
@@ -158,32 +158,32 @@
             function win_detector(sec) {
                 
 
-                if (sec1.innerHTML === "X" && sec2.innerHTML === "X" && sec3.innerHTML === "X" ||
-                    sec4.innerHTML === "X" && sec5.innerHTML === "X" && sec6.innerHTML === "X" ||
-                    sec7.innerHTML === "X" && sec8.innerHTML === "X" && sec9.innerHTML === "X" ||
+                if (sec1.innerHTML === "❌" && sec2.innerHTML === "❌" && sec3.innerHTML === "❌" ||
+                    sec4.innerHTML === "❌" && sec5.innerHTML === "❌" && sec6.innerHTML === "❌" ||
+                    sec7.innerHTML === "❌" && sec8.innerHTML === "❌" && sec9.innerHTML === "❌" ||
                     
-                    sec1.innerHTML === "X" && sec4.innerHTML === "X" && sec7.innerHTML === "X" ||
-                    sec2.innerHTML === "X" && sec5.innerHTML === "X" && sec8.innerHTML === "X" ||
-                    sec3.innerHTML === "X" && sec6.innerHTML === "X" && sec9.innerHTML === "X" ||
+                    sec1.innerHTML === "❌" && sec4.innerHTML === "❌" && sec7.innerHTML === "❌" ||
+                    sec2.innerHTML === "❌" && sec5.innerHTML === "❌" && sec8.innerHTML === "❌" ||
+                    sec3.innerHTML === "❌" && sec6.innerHTML === "❌" && sec9.innerHTML === "❌" ||
                     
-                    sec1.innerHTML === "X" && sec5.innerHTML === "X" && sec9.innerHTML === "X" ||
-                    sec3.innerHTML === "X" && sec5.innerHTML === "X" && sec7.innerHTML === "X" 
+                    sec1.innerHTML === "❌" && sec5.innerHTML === "❌" && sec9.innerHTML === "❌" ||
+                    sec3.innerHTML === "❌" && sec5.innerHTML === "❌" && sec7.innerHTML === "❌" 
                 ) {
-                    indicator.innerHTML = "X wins!";
+                    indicator.innerHTML = "O wins!";
                     end();
                 }
 
                 else if (
-                    sec1.innerHTML === "O" && sec2.innerHTML === "O" && sec3.innerHTML === "O" ||
-                    sec4.innerHTML === "O" && sec5.innerHTML === "O" && sec6.innerHTML === "O" ||
-                    sec7.innerHTML === "O" && sec8.innerHTML === "O" && sec9.innerHTML === "O" ||
+                    sec1.innerHTML === "⭕" && sec2.innerHTML === "⭕" && sec3.innerHTML === "⭕" ||
+                    sec4.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec6.innerHTML === "⭕" ||
+                    sec7.innerHTML === "⭕" && sec8.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
                     
-                    sec1.innerHTML === "O" && sec4.innerHTML === "O" && sec7.innerHTML === "O" ||
-                    sec2.innerHTML === "O" && sec5.innerHTML === "O" && sec8.innerHTML === "O" ||
-                    sec3.innerHTML === "O" && sec6.innerHTML === "O" && sec9.innerHTML === "O" ||
+                    sec1.innerHTML === "⭕" && sec4.innerHTML === "⭕" && sec7.innerHTML === "⭕" ||
+                    sec2.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec8.innerHTML === "⭕" ||
+                    sec3.innerHTML === "⭕" && sec6.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
                     
-                    sec1.innerHTML === "O" && sec5.innerHTML === "O" && sec9.innerHTML === "O" ||
-                    sec3.innerHTML === "O" && sec5.innerHTML === "O" && sec7.innerHTML === "O" 
+                    sec1.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
+                    sec3.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec7.innerHTML === "⭕" 
                 ) {
                     indicator.innerHTML = "O wins!"
                     end();
