@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emile's tic-tac-toe game/board</title>
 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#262626">
+
     <style>
         #title {
         font-size: min(50px, 12vw);
@@ -208,7 +211,7 @@
 
             function end() {
                 document.querySelectorAll(".section").forEach(button => {
-                button.disabled = true;
+                button.disabled = false;
                 });
             }
         });
@@ -241,6 +244,12 @@
                 });
                 indicator.innerHTML = "-O-"
             }
+    </script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js");
+        }
     </script>
 </body>
 </html>
