@@ -1,9 +1,9 @@
 self.addEventListener("install", e => {
   e.waitUntil(
-    caches.open("tic-tac-toe-v1").then(cache => {
+    caches.open("tic-tac-toe-v2").then(cache => {
       return cache.addAll([
         "./",
-        "./index.html",
+        "./tic-tac-toe.html",
         "./manifest.json"
       ]);
     })
