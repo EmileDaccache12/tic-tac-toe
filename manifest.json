@@ -1,10 +1,10 @@
 {
   "name": "Tic Tac Toe",
   "short_name": "tic-tac-toe",
-  "start_url": "./tic-tac-toe.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#262626",
   "icons": [
     {
       "src": "XO-icon-192.png",
