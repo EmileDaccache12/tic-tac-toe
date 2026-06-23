@@ -58,18 +58,23 @@
             cursor: pointer;
         }
 
-        #reset-board {
+        #footer {
             text-align: center;
             margin-top: 6px;
         }
 
-        #reset {
+        .footer {
             text-align: center;
             width: min(500px, 89vw);
             font-size: 220%;
             padding: 1px;
             border: 5px solid black;
             background-color: rgb(222, 222, 222);
+            font-weight: bolder;
+        }
+
+        #change {
+            margin-top: 10px;
         }
 
         #reset:hover {
@@ -153,45 +158,70 @@
             function click_detector(sec) {
                 if (sec.innerHTML !== "") return;
                 if (indicator.innerHTML === "-O-") {
-                    sec.innerHTML = "⭕";
+                    sec.innerHTML = o;
                     indicator.innerHTML = "-X-";
                 }
                 else {
-                    sec.innerHTML = "❌";
+                    sec.innerHTML = x;
                     indicator.innerHTML = "-O-";
                 }
             }
 
-            function win_detector(sec) {
-                
+            let x = "❌";
+            let o = "⭕";
 
-                if (sec1.innerHTML === "❌" && sec2.innerHTML === "❌" && sec3.innerHTML === "❌" ||
-                    sec4.innerHTML === "❌" && sec5.innerHTML === "❌" && sec6.innerHTML === "❌" ||
-                    sec7.innerHTML === "❌" && sec8.innerHTML === "❌" && sec9.innerHTML === "❌" ||
+            const change = document.getElementById("change");
+
+            change.addEventListener("click" , function() {
+                if (x === "❌" && o === "⭕") {
+                    x = "X";
+                    o = "O"
+                    change.innerHTML = "change to ❌ - ⭕"
+                }
+
+                else {
+                    x = "❌"
+                    o = "⭕"
+                    change.innerHTML = "change to X - O"
+                }
+
+                document.querySelectorAll(".section").forEach(btn => {
+                    if (btn.innerHTML === "❌") btn.innerHTML = "X";
+                    else if (btn.innerHTML === "⭕") btn.innerHTML = "O";
+                    else if (btn.innerHTML === "O") btn.innerHTML = "⭕";
+                    else if (btn.innerHTML === "X") btn.innerHTML= "❌";
+                });
+            });
+
+            function win_detector(sec) {
+
+                if (sec1.innerHTML === x && sec2.innerHTML === x && sec3.innerHTML === x ||
+                    sec4.innerHTML === x && sec5.innerHTML === x && sec6.innerHTML === x ||
+                    sec7.innerHTML === x && sec8.innerHTML === x && sec9.innerHTML === x ||
                     
-                    sec1.innerHTML === "❌" && sec4.innerHTML === "❌" && sec7.innerHTML === "❌" ||
-                    sec2.innerHTML === "❌" && sec5.innerHTML === "❌" && sec8.innerHTML === "❌" ||
-                    sec3.innerHTML === "❌" && sec6.innerHTML === "❌" && sec9.innerHTML === "❌" ||
+                    sec1.innerHTML === x && sec4.innerHTML === x && sec7.innerHTML === x ||
+                    sec2.innerHTML === x && sec5.innerHTML === x && sec8.innerHTML === x ||
+                    sec3.innerHTML === x && sec6.innerHTML === x && sec9.innerHTML === x ||
                     
-                    sec1.innerHTML === "❌" && sec5.innerHTML === "❌" && sec9.innerHTML === "❌" ||
-                    sec3.innerHTML === "❌" && sec5.innerHTML === "❌" && sec7.innerHTML === "❌" 
+                    sec1.innerHTML === x && sec5.innerHTML === x && sec9.innerHTML === x ||
+                    sec3.innerHTML === x && sec5.innerHTML === x && sec7.innerHTML === x 
                 ) {
-                    indicator.innerHTML = "O wins!";
+                    indicator.innerHTML = "X wins!";
                     end();
                     return
                 }
 
                 else if (
-                    sec1.innerHTML === "⭕" && sec2.innerHTML === "⭕" && sec3.innerHTML === "⭕" ||
-                    sec4.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec6.innerHTML === "⭕" ||
-                    sec7.innerHTML === "⭕" && sec8.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
+                    sec1.innerHTML === o && sec2.innerHTML === o && sec3.innerHTML === o ||
+                    sec4.innerHTML === o && sec5.innerHTML === o && sec6.innerHTML === o ||
+                    sec7.innerHTML === o && sec8.innerHTML === o && sec9.innerHTML === o ||
                     
-                    sec1.innerHTML === "⭕" && sec4.innerHTML === "⭕" && sec7.innerHTML === "⭕" ||
-                    sec2.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec8.innerHTML === "⭕" ||
-                    sec3.innerHTML === "⭕" && sec6.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
+                    sec1.innerHTML === o && sec4.innerHTML === o && sec7.innerHTML === o ||
+                    sec2.innerHTML === o && sec5.innerHTML === o && sec8.innerHTML === o ||
+                    sec3.innerHTML === o && sec6.innerHTML === o && sec9.innerHTML === o ||
                     
-                    sec1.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec9.innerHTML === "⭕" ||
-                    sec3.innerHTML === "⭕" && sec5.innerHTML === "⭕" && sec7.innerHTML === "⭕" 
+                    sec1.innerHTML === o && sec5.innerHTML === o && sec9.innerHTML === o ||
+                    sec3.innerHTML === o && sec5.innerHTML === o && sec7.innerHTML === o 
                 ) {
                     indicator.innerHTML = "O wins!"
                     end();
@@ -237,8 +267,11 @@
         <button class="section" id="sec8"></button>
         <button class="section" id="sec9"></button>
     </div>
-    <div id="reset-board">
-        <button onclick="reset_board()" id="reset"><b>Reset Board</b></button>
+    <div id="footer">
+        <button onclick="reset_board()" id="reset" class="footer">Reset Board</button>
+        
+        <br>
+        <button id="change" class="footer">change to X - O</button>
     </div>
     <script>
         function reset_board() {
@@ -250,7 +283,7 @@
             }
     </script>
 
-    <br><br><br><br>
+    <br>
     <h3 id="credits">by Emile Daccache</h3>
 
     <script>
